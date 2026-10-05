@@ -36,11 +36,50 @@ char descricao[QUA][1000];
 int media_nota[QUA];
 int quantida_avaliacao[QUA];
 //////////////////////////////////////////////////////////////////////////////////
+int escolha;
 
 
 
-int escolha = Menu();
-printf("%d\n", escolha);
+do{
+//// Menu sendo exibido e pedidndo escolha
+escolha = Menu();
+
+////entrando nas escolhas 
+switch (escolha)
+{
+case 1:
+    linha();
+    printf("Vc escolheu cadastro\n");
+    break;
+
+case 2:
+    linha();
+    printf("Você escolheu Lista\n");
+    break;
+
+case 3:
+    linha();
+    printf("Você escolheu buscar pelo ID\n");
+
+    break;
+case 4:
+    linha();
+    printf("Você escolheu buscar pelo Nome\n");
+
+
+default:
+// caso tenha digitado algo errado 
+    printf("Essa opção não existe!!!\n");
+    break;
+}
+
+
+}while(escolha != 5);
+
+printf("Você encerrou o programa :(");
+
+
+
 
 
     return 0;
