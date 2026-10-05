@@ -1,4 +1,8 @@
 #include <stdio.h>
+#define QUA 50
+
+
+
 void linha()
 {
 printf("==================================================================\n");
@@ -24,9 +28,19 @@ int Menu()
 }
 
 int main() {
+// Vetores principais que vão esta em parapelo
+int id[QUA];
+char agente[QUA][80];
+char prompt[QUA][1000];
+char descricao[QUA][1000];
+int media_nota[QUA];
+int quantida_avaliacao[QUA];
+//////////////////////////////////////////////////////////////////////////////////
 
-int teste_menu = Menu();
-printf("%d", teste_menu);
+
+
+int escolha = Menu();
+printf("%d\n", escolha);
 
 
     return 0;
