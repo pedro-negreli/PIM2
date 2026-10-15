@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "funcoes.h"
-#define QUA 50
+#define MAX 50
 
 
 
@@ -20,6 +20,21 @@
 
 int main()
 {
+    /////////// agente ////////////////
+int id[MAX];
+int proximo_id = 0;
+
+char nome_agente[MAX][81];
+char prompt[MAX][1001];
+char categoria[MAX][41];
+char descricao[MAX][301];
+
+
+int status_cada[MAX];
+float nota[MAX];
+
+int total_agentes = 0;
+//////////////////////////////
 char nome_user[100] = "";
 int menu;
 int verificar_usuario = 0;
@@ -47,6 +62,15 @@ if(verificar_usuario == 1)
     
     case 3:
         printf("Cadastrar\n");
+        CadastrarAgente(id,
+            nome_agente,
+            prompt,
+            categoria,
+            descricao,
+            status_cada,
+            nota,
+            &total_agentes,
+            &proximo_id);
         break;
     case 4:
         printf("Encerrar programa\n");

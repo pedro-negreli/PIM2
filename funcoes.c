@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h> 
 #include "funcoes.h"
-
+#define MAX 50
 
 void linha()
 {
@@ -86,6 +86,10 @@ int MenuU(char nome[])
     
     
     scanf("%d",&escolha);
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+{
+}
 
     return escolha;
 }
@@ -105,6 +109,87 @@ int MenuA(char nome[])
     
     
     scanf("%d",&escolha);
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+{
+}
 
     return escolha;
+}
+
+
+void Fgetsauto(size_t tamanho, char cadastroitem[])
+{
+    if (fgets(cadastroitem, tamanho, stdin) != NULL)
+    {
+        cadastroitem[strcspn(cadastroitem, "\n")] = '\0';
+    }
+}
+
+void CadastrarAgente(
+    int id[],
+    char nome_agente[][81],
+    char prompts[][1001],
+    char categoria[][41],
+    char descricoes[][301],
+    int status[],
+    float nota_cada[],
+    int *total_agentes,
+    int *proximo_id
+)
+{
+float nota_inicial = 0;
+
+if(*total_agentes < 50)
+{
+    printf("Qual nome do seu agente: \n");
+    Fgetsauto(81,nome_agente[*total_agentes]);
+
+    printf("Qual a categoria do seu agente:\n");
+    Fgetsauto(41,categoria[*total_agentes]);
+
+    printf("Faça uma descrição do agente:\n");
+    Fgetsauto(301,descricoes[*total_agentes]);
+
+    printf("Insira o prompt do agente:\n");
+    Fgetsauto(1001,prompts[*total_agentes]);
+
+    printf("Adicione a nota inicial para o agente\nDigite uma nota entre 0 e 5\n");
+    do{
+        int resultado;
+        int c;
+        resultado = scanf("%f", &nota_inicial);
+        while ((c = getchar()) != '\n' && c != EOF);
+
+        if(resultado == 1 && nota_inicial >= 0 && nota_inicial <= 5)
+        {
+            printf("Nota confirmada\n");
+            break;
+        }
+        else
+        {
+            printf("Nota incorreta\nDigite uma nota entre 0 a 5\n");
+        }
+
+        if(c == EOF)
+        {
+        return;
+        }
+    }while(1);
+    nota_cada[*total_agentes] = nota_inicial;
+    
+    status[*total_agentes] = 1;
+
+
+    id[*total_agentes]= *proximo_id + 100;
+    (*proximo_id)++;
+
+
+
+    (*total_agentes)++;
+}
+else
+{
+    printf("\n!!Limite de agente atingido!!\n");
+}
 }
