@@ -16,5 +16,17 @@ void CadastrarAgente(
     int *total_agentes,
     int *proximo_id
 );
+void MostrarLista(
+    int id[],
+    char nome_agente[][81],
+    char prompts[][1001],
+    char categoria[][41],
+    char descricoes[][301],
+    int status[],
+    float nota_cada[],
+    int *total_agentes
+);
+
+
 
 #endif

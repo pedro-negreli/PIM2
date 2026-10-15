@@ -54,6 +54,7 @@ if(verificar_usuario == 1)
     {
     case 1:
         printf("Lista\n");
+        MostrarLista(id,nome_agente,prompt,categoria,descricao,status_cada,nota,&total_agentes);
         break;
         
     case 2:

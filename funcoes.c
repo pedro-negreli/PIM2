@@ -193,3 +193,39 @@ else
     printf("\n!!Limite de agente atingido!!\n");
 }
 }
+
+void MostrarLista(
+    int id[],
+    char nome_agente[][81],
+    char prompts[][1001],
+    char categoria[][41],
+    char descricoes[][301],
+    int status[],
+    float nota_cada[],
+    int *tota_agentes
+)
+{
+    linha();
+    printf("             LISTA DE AGENTES\n");
+    for(int i = 0;i < *tota_agentes ;i++)
+    {
+
+
+        printf("%d",id[i]);
+        printf(" %s ",nome_agente[i]);
+        printf(" %s ",prompts[i]);
+        printf(" %s ", categoria[i]);
+        printf(" %s ", descricoes[i]);
+
+            if(status[i] == 1)
+            {
+                printf(" Ativo ");
+            }
+            else
+            {
+                printf("Inativo");
+            }
+        printf("%.2f\n", nota_cada[i]);
+
+    }
+}
